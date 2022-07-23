@@ -1,0 +1,38 @@
+.home {
+  padding: 14.8rem var(--padding-desktop) 0;
+  position: relative;
+  min-height: 100vh;
+  color: var(--third-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__title {
+  position: relative;
+  top: 40px;
+  align-self: flex-start;
+  font-size: 6.4rem;
+  width: 50%;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.home__list {
+  align-self: center;
+  list-style: none;
+  display: grid;
+  gap: 6rem;
+}
+
+.home__item {
+  width: 5rem;
+}
+
+.home__avatar {
+  position: absolute;
+  width: 52rem;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  margin: 0 auto;
+}
