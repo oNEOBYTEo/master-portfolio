@@ -11,7 +11,11 @@ const Home = () => {
       />
       <ul className="home__list">
         <li className="home__item">
-          <a href="#" className="home__link">
+          <a
+            target="__blank"
+            href="https://www.instagram.com/_neobyte_/"
+            className="home__link"
+          >
             <img
               src="/instagram.svg"
               alt="instagram icon"
@@ -20,7 +24,11 @@ const Home = () => {
           </a>
         </li>
         <li className="home__item">
-          <a href="#" className="home__link">
+          <a
+            target="__blank"
+            href="https://www.linkedin.com/in/anderson-cifuentes-b380a7231/"
+            className="home__link"
+          >
             <img
               src="/linkedin.svg"
               alt="linkedin icon"
@@ -29,7 +37,11 @@ const Home = () => {
           </a>
         </li>
         <li className="home__item">
-          <a href="#" className="home__link">
+          <a
+            target="__blank"
+            href="https://github.com/oNEOBYTEo"
+            className="home__link"
+          >
             <img src="/github.svg" alt="github icon" className="home__icon" />
           </a>
         </li>
