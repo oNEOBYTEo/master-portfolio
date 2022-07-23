@@ -16,7 +16,7 @@ const Form = () => {
     console.log(data);
   };
   return (
-    <form onSubmit={handleSubmit(submit)} className="form">
+    <form onSubmit={handleSubmit(submit)} className="form" netlify>
       <ul className="form__container">
         <li className="form__item">
           <label htmlFor="name" className="form__label form__label-name">

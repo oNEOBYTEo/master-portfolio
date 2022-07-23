@@ -4,11 +4,7 @@ const Home = () => {
   return (
     <section className="home">
       <h2 className="home__title">Hey I’m Frontend Developer</h2>
-      <img
-        src="/public/photo-face.png"
-        alt="my face"
-        className="home__avatar"
-      />
+      <img src="/photo-face.png" alt="my face" className="home__avatar" />
       <ul className="home__list">
         <li className="home__item">
           <a
