@@ -26,17 +26,12 @@ const Form = () => {
       .then(
         (result) => {
           setSend(result.text);
+          reset();
         },
         (error) => {
           setSend('ERROR');
         }
       );
-  };
-
-  const timingReset = () => {
-    setTimeout(() => {
-      reset();
-    }, 2000);
   };
 
   return (
@@ -121,16 +116,13 @@ const Form = () => {
           )}
         </li>
         <li className="form__item">
-          <button className="form__cta" onClick={timingReset}>
-            Send Message
+          <button className="form__cta">
+            {send === 'OK'
+              ? 'Send successfully'
+              : send === 'ERROR'
+              ? 'Send successfully'
+              : 'Send Message'}
           </button>
-          {send === 'OK' ? (
-            <span className="form__span">Send successfully</span>
-          ) : (
-            send === 'ERROR' && (
-              <span className="form__span">Error, couldn't send the form </span>
-            )
-          )}
         </li>
       </ul>
     </form>
