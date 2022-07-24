@@ -33,6 +33,12 @@ const Form = () => {
       );
   };
 
+  const timingReset = () => {
+    setTimeout(() => {
+      reset();
+    }, 2000);
+  };
+
   return (
     <form
       onSubmit={(e) => {
@@ -65,7 +71,7 @@ const Form = () => {
           </label>
           <input
             className="form__input"
-            type="email"
+            type="text"
             id="email"
             {...register('email', {
               required: { value: true, message: 'This field is required' },
@@ -115,7 +121,7 @@ const Form = () => {
           )}
         </li>
         <li className="form__item">
-          <button className="form__cta" onClick={() => reset()}>
+          <button className="form__cta" onClick={timingReset}>
             Send Message
           </button>
           {send === 'OK' ? (

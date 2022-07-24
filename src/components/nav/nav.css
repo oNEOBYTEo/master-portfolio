@@ -10,7 +10,7 @@
 .nav__link {
   color: var(--secondary-color);
   display: block;
-  font-weight: bold;
+
   text-align: center;
   width: 16rem;
 }
