@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 
 const Form = () => {
   const {
@@ -9,14 +10,36 @@ const Form = () => {
     formState: { errors },
   } = useForm();
 
+  const [send, setSend] = useState('');
+
   const regx =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-  const submit = (data) => {
-    console.log(data);
+  const submit = (data, e) => {
+    emailjs
+      .sendForm(
+        'service_ve83wik',
+        'template_45f3k9d',
+        e.target,
+        'SzFJbZK7WQn3Vrq4e'
+      )
+      .then(
+        (result) => {
+          setSend(result.text);
+        },
+        (error) => {
+          setSend('ERROR');
+        }
+      );
   };
+
   return (
-    <form onSubmit={handleSubmit(submit)} className="form" netlify>
+    <form
+      onSubmit={(e) => {
+        handleSubmit(submit)(e);
+      }}
+      className="form"
+    >
       <ul className="form__container">
         <li className="form__item">
           <label htmlFor="name" className="form__label form__label-name">
@@ -42,7 +65,7 @@ const Form = () => {
           </label>
           <input
             className="form__input"
-            type="text"
+            type="email"
             id="email"
             {...register('email', {
               required: { value: true, message: 'This field is required' },
@@ -92,7 +115,16 @@ const Form = () => {
           )}
         </li>
         <li className="form__item">
-          <button className="form__cta">Send Message</button>
+          <button className="form__cta" onClick={() => reset()}>
+            Send Message
+          </button>
+          {send === 'OK' ? (
+            <span className="form__span">Send successfully</span>
+          ) : (
+            send === 'ERROR' && (
+              <span className="form__span">Error, couldn't send the form </span>
+            )
+          )}
         </li>
       </ul>
     </form>
